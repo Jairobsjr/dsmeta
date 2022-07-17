@@ -8,7 +8,7 @@ import NotificationButton from "../NotificationButton";
 import "./styles.css";
 
 function SalesCard() {
-  const [minDate, setMinDate] = useState(new Date());
+  const [minDate, setMinDate] = useState(new Date(new Date().setDate(new Date().getDate() - 365)));
   const [maxDate, setmaxDate] = useState(new Date());
 
   const [sales, setSales] = useState<Sale[]>([]);
@@ -71,7 +71,7 @@ function SalesCard() {
                   <td>
                     <div className="dsmeta-red-btn-container">
                       <div className="dsmeta-red-btn">
-                        <NotificationButton />
+                        <NotificationButton saleId={sale.id} />
                       </div>
                     </div>
                   </td>
